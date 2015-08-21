@@ -1,0 +1,21 @@
+{
+  "name": "kwatchd",
+  "version": "0.2.1",
+  "description": "gwatchd for macosx",
+  "main": "kwatchd.js",
+  "bin": {
+    "kwatchd": "./bin/kwatchd.js"
+  },
+  "author": "",
+  "dependencies": {
+    "fsevents": "^0.3.8",
+    "js-yaml": "3.3.*",
+    "rsync": "^0.4.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}
