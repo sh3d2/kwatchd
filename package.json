@@ -1,12 +1,16 @@
 {
   "name": "kwatchd",
-  "version": "0.2.1",
+  "version": "0.2.4",
   "description": "gwatchd for macosx",
   "main": "kwatchd.js",
   "bin": {
     "kwatchd": "./bin/kwatchd.js"
   },
-  "author": "",
+  "author": "Karol Kaczmarek",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sh3d2/kwatchd.git"
+  },
   "dependencies": {
     "fsevents": "^0.3.8",
     "js-yaml": "3.3.*",
