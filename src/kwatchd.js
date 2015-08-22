@@ -20,6 +20,16 @@ var reader = require('./config/yaml/reader.js'),
 
 _.each(config.getDirs(), function(dir){
   observer.addDirectory(dir.getPath(), _.debounce(function(path, info){
+    logger.log('observed changes in', dir.getPath());
     rsync.create(dir).exec();
   }, 600));
 });
+
+function shutdown(){
+  logger.log('shutting down');
+  observer.stopAll();
+  process.exit();
+}
+
+process.on ('SIGTERM', shutdown);
+process.on ('SIGINT', shutdown);
