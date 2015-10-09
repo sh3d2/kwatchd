@@ -10,18 +10,14 @@ var FileSystemObserver = function(){
 };
 
 FileSystemObserver.prototype.addDirectory = function(dir, callback){
-  // var watcher = fsevents(dir);
+  var watcher = fsmonitor.watch(dir);
   var observer = this;
 
-var watcher = fsmonitor.watch(dir, null, function(info){
-  callback();
-})
 
-console.log(watcher);
+  watcher.on('change', function(){
+    callback();
+  });
 
-  // watcher.on('change', function(path, info){
-  //   callback(path, dir);
-  // });
   watcher.mydir = dir;
   this.watchers_.push(watcher);
 };
