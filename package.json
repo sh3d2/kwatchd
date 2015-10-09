@@ -1,6 +1,6 @@
 {
   "name": "kwatchd",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "gwatchd for macosx",
   "main": "kwatchd.js",
   "bin": {
@@ -16,7 +16,9 @@
     "js-yaml": "3.3.*",
     "progress": "^1.1.8",
     "rsync": "^0.4.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "fsmonitor": "*"
+
   },
   "devDependencies": {},
   "scripts": {
