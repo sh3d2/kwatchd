@@ -15,7 +15,7 @@ var reader = require('./config/yaml/reader.js'),
       logger.log('using fsevents');
       break;
     default:
-      throw "unsupported platform";
+      throw "unsupported platform "+process.platform;
   }
 
 _.each(config.getDirs(), function(dir){
