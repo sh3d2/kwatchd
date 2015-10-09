@@ -1,16 +1,21 @@
 var reader = require('./config/yaml/reader.js'),
   _ = require('underscore'),
   logger = require('./utils/log.js');
-  observer = require('./fs/observer.js'),
+  observer = null,
   rsync = require('./rsync/rsync'),
   ymlReader = new reader.Reader('file')
-  config = ymlReader.read(),
-  observer;
+  config = ymlReader.read();
 
   logger.log('Your platform is', process.platform);
 
   switch(process.platform){
     case 'darwin':
+      observer = require('./fs/observer.js');
+      observer = new observer.FileSystemObserver();
+      logger.log('using fsevents');
+      break;
+    case 'win32':
+      observer = require('./fs/windows.js');
       observer = new observer.FileSystemObserver();
       logger.log('using fsevents');
       break;
