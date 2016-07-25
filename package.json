@@ -1,6 +1,6 @@
 {
   "name": "kwatchd",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "gwatchd for macosx",
   "main": "kwatchd.js",
   "bin": {
