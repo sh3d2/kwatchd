@@ -10,6 +10,7 @@ var Command = function(dir){
       .flags('a')
       // .set('progress')
       .set('info', 'progress2')
+	.exclude(dir.getExcludes()) 
       // .set('stats')
       .source(dir.getPath())
       .destination(dir.getTarget().getSsh().getUser()
@@ -19,6 +20,12 @@ var Command = function(dir){
           + dir.getTarget().getDestination()
       );
 
+
+//this.rsync.set('exclude', dir.getExcludes()[0]);
+//this.rsync.set('exclude', dir.getExcludes()[1]);
+
+
+console.log(dir.getExcludes());
 };
 
 Command.prototype.exec = function(){
@@ -26,7 +33,7 @@ Command.prototype.exec = function(){
       regexp = /to-chk=(\d+)/,
       progress;
 
-  // logger.log('executing', this.rsync.command());
+ logger.log('executing', this.rsync.command());
   this.rsync.output(function(data){
     var result = data.toString().match(regexp);
     if(!total && result && result[1]){
